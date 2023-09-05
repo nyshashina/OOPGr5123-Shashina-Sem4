@@ -49,9 +49,14 @@ public class App {
 
         System.out.println(new PersonComparator<Student>().compare(s1, s3));
 
-        AccountController controller = new AccountController();
-        controller.paySalary(t1, 50000);
+       // AccountController controller = new AccountController();
+       // controller.paySalary(t1, 50000);
        // controller.paySalary(s1, 50000);
+
+       AccountController.paySalary(t1, 50000);
+       
+       System.out.println(AccountController.averageAge(listStud));
+
 
     }
 }
