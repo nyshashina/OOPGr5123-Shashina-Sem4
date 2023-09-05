@@ -2,12 +2,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import Controllers.AccountController;
+import Domen.PersonComparator;
 import Domen.Student;
 import Domen.StudentGroup;
+import Domen.Teacher;
 
 public class App {
     public static void main(String[] args) throws Exception {
-       Student s1 = new Student("Иван", 25);
+
+        Student s1 = new Student("Иван", 25);
         Student s2 = new Student("Игорь", 23);
         Student s3 = new Student("Иван", 22);
         Student s4 = new Student("Игорь",  23);
@@ -39,5 +43,15 @@ public class App {
         {
             System.out.println(std);
         }
+
+        Teacher t1 = new Teacher("Галина", 55, "Docent");
+        Teacher t2 = new Teacher("Татьяна", 57, "Docent");
+
+        System.out.println(new PersonComparator<Student>().compare(s1, s3));
+
+        AccountController controller = new AccountController();
+        controller.paySalary(t1, 50000);
+       // controller.paySalary(s1, 50000);
+
     }
 }
