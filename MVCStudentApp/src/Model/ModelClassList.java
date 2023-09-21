@@ -15,5 +15,9 @@ public class ModelClassList implements iGetModel {
 
     public List<Student> getStudents() {
         return students;
-    } 
+    }
+
+    public boolean deleteStudent(int id) {
+        return false;
+    }
 }

@@ -5,12 +5,19 @@ import Controller.ControllerClass;
 import Controller.Interfaces.iGetModel;
 import Controller.Interfaces.iGetView;
 import Model.ModelClassFile;
+import Model.ModelClassHash;
 import Model.ModelClassList;
 import Model.Core.Student;
 import View.ViewClass;
+import View.ViewClassEng;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    /**
+     * Основной метод программы
+     *
+     * @param args аргументы командной строки
+     */
+    public static void main(String[] args) {
 
         List<Student> students = new ArrayList<>();
         Student s1 = new Student("Сергей", 21);
@@ -28,20 +35,19 @@ public class App {
         students.add(s6);
         students.add(s7);
 
-        ModelClassFile fModel = new ModelClassFile("StudentDB.csv");
+//        ModelClassFile fModel = new ModelClassFile("StudentDB.csv");
         //fModel.saveAllStudentToFile(students);
-
+        ModelClassHash hModel = new ModelClassHash(students);
 
         //ModelClassList modelList = new ModelClassList(students);
         //ViewClass view = new ViewClass();
 
-        iGetModel modelList = fModel;//new ModelClassList(students);
-        iGetView view = new ViewClass();
+//        iGetModel modelList = fModel;//new ModelClassList(students);
+        iGetView view = new ViewClassEng();
 
-        ControllerClass controller = new ControllerClass(modelList, view);
+        ControllerClass controller = new ControllerClass(hModel, view);
 
-       // controller.update();
-       controller.run();
+        controller.run();
 
 
     }
